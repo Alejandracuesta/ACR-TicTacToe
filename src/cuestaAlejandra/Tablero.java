@@ -1,13 +1,14 @@
 public class Tablero {
 
     private char[][] casillas;
+    private final char CASILLA_VACIA = '_';
 
     public void mostrar() {
 
         casillas = new char[3][3];
         for  (int i = 0; i < casillas.length; i++) {
          for (int j = 0; j < casillas[i].length; j++) {
-                casillas[i][j] = '_';
+                casillas[i][j] = CASILLA_VACIA;
             }
         }
 
@@ -64,20 +65,19 @@ public class Tablero {
     }
 
     public boolean estaOcupado(Coordenada coordenada) {
-
+        return casillas[coordenada.getFila() - 1][coordenada.getColumna()- 1 ] != CASILLA_VACIA;
     }
 
     public void ponerFicha(Coordenada coordenada, char color) {
-
+        casillas[coordenada.getFila() - 1][coordenada.getColumna()- 1 ] = color;
     }
 
     public void sacarFicha(Coordenada coordenada) {
-
+        ponerFicha(coordenada, CASILLA_VACIA);
     }
 
     public boolean estaVacio(Coordenada coordenada) {
-
+        return !estaOcupado(coordenada);
     }
 
-}
 }
