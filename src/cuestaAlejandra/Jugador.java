@@ -13,4 +13,14 @@ public class Jugador {
         } while(!coordenada.esValida() || tablero.estaOcupado(coordenada));
         tablero.ponerFicha(coordenada,color);
     }
+
+    public void moverFicha(Tablero tablero) {
+        Coordenada coordenada = new Coordenada();
+        do{
+            coordenada.pedir();
+        } while(!coordenada.esValida() || tablero.estaVacio(coordenada));
+        tablero.sacarFicha(coordenada);
+        this.ponerFicha(tablero);
+    }
+
 }
