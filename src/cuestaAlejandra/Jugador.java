@@ -23,4 +23,12 @@ public class Jugador {
         this.ponerFicha(tablero);
     }
 
+     public void celebrar() {
+        System.out.println("Hemos ganado los " + color);
+    }
+
+    public char color() {
+        return color;
+    }
+
 }
